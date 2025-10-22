@@ -1,7 +1,22 @@
+import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
 import React from 'react'
-import { NavLink } from 'react-router'
+import { Link, NavLink } from 'react-router'
+import auth from '../../firebase/firebase.config';
+
+  const googleProvider = new GoogleAuthProvider();
+
 
 const Navbar = () => {
+  const handleGoogleSignIn = () =>{
+    signInWithPopup(auth, googleProvider)
+    .then(result =>{
+      console.log(result)
+    })
+    .catch(error => {
+      console.log(error)
+    })
+  }
+
   return (
    <div className="navbar bg-base-100 shadow-sm">
   <div className="navbar-start">
@@ -27,8 +42,9 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end flex gap-2">
-    <a href="">profile</a>
-    <a className="btn btn-accent">Login</a>
+    <Link to='/profile'><button className='btn btn-accent'>My Profile</button></Link>
+    <Link to='/login'><button className='btn btn-info'>Login</button></Link>
+    <Link to='/login' onClick={handleGoogleSignIn}><button className='btn btn-info'>Google</button></Link>
   </div>
 </div>
   )

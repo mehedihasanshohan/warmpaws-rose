@@ -5,6 +5,7 @@ import p3 from "/p3.jfif";
 import p4 from "/p4.jfif";
 import p5 from "/p5.jfif";
 import p6 from "/p6.jfif";
+import { FaStar } from 'react-icons/fa';
 
 const PetServices = () => {
   const [services, setServices] = useState([]);
@@ -30,25 +31,25 @@ const PetServices = () => {
           {services.map((service, index) => (
             <div
               key={service.serviceId}
-              className="card bg-white shadow-lg rounded-2xl overflow-hidden transition-all duration-300"
+              className="card bg-white p-4 shadow-lg rounded-2xl overflow-hidden transition-all duration-300"
             >
               {/* Use dynamic image by index */}
               <img
                 src={images[index % images.length]} // loops through 6 images
                 alt={service.serviceName}
-                className="h-48 w-full object-cover"
+                className="h-48 w-full rounded-lg object-cover"
               />
 
               <div className="p-5 space-y-3">
-                <h3 className="text-xl font-semibold text-blue-600">
+                <h3 className="text-2xl font-semibold text-blue-600">
                   {service.serviceName}
                 </h3>
 
                 <div className="flex items-center justify-between text-sm text-gray-600">
-                  <p>
-                    ⭐ <span className="font-medium">{service.rating}</span>
-                  </p>
-                  <p className="font-semibold text-blue-700">
+                  <div className="flex justify-center items-center gap-2">
+                    <FaStar className="text-yellow-400 h-4 w-4"></FaStar> <span className="font-medium text-lg">{service.rating}</span>
+                  </div>
+                  <p className="font-semibold text-lg text-blue-700">
                     ${service.price}
                   </p>
                 </div>
