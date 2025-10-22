@@ -1,6 +1,6 @@
 import { GoogleAuthProvider, signInWithPopup, signOut } from 'firebase/auth'
 import React, { useState } from 'react'
-import { Link, NavLink } from 'react-router'
+import { NavLink} from 'react-router'
 import auth from '../../firebase/firebase.config';
 
   const googleProvider = new GoogleAuthProvider();
@@ -24,6 +24,7 @@ const Navbar = () => {
     signOut(auth)
     .then( ()=> {
       alert('sign out')
+      setUser(null)
     })
     .catch(error => {
       console.log(error)
@@ -55,10 +56,10 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end flex gap-2">
-    <Link to='/profile'><button className='btn btn-accent'>My Profile</button></Link>
-    <Link to='/login'><button className='btn btn-info'>Login</button></Link>
-    {user ? <Link onClick={handleGoogleSignOut}>Logout</Link> : <Link>Register</Link>}
-    <Link to='/login' onClick={handleGoogleSignIn}><button className='btn btn-info'>Google</button></Link>
+    <NavLink to='/profile'>My Profile</NavLink>
+    <NavLink to='/login'>Login</NavLink>
+    {user ? <NavLink onClick={handleGoogleSignOut}>Logout</NavLink> : <NavLink to='/register'>Register</NavLink>}
+    <NavLink to='/login' onClick={handleGoogleSignIn}><button className='btn btn-info'>Google</button></NavLink>
   </div>
 </div>
   )
