@@ -8,7 +8,7 @@
     "rating": 4.9,
     "slotsAvailable": 4,
     "description": "Custom coat fitting and warm outfit options to keep your dog comfortable in the cold.",
-    "image": "https://i.postimg.cc/tg2K7s8b/dog-coat.jpg",
+    "image": "/p1.jfif",
     "category": "Clothing"
   },
   {
@@ -20,7 +20,7 @@
     "rating": 4.8,
     "slotsAvailable": 6,
     "description": "A soothing paw wax treatment that prevents cracking and dryness during winter walks.",
-    "image": "https://i.postimg.cc/9Fq5wKfW/paw-wax.jpg",
+    "image": "/p2.jfif",
     "category": "Grooming"
   },
   {
@@ -32,7 +32,7 @@
     "rating": 4.7,
     "slotsAvailable": 3,
     "description": "Installation and setup of warm, comfortable bedding to ensure a cozy winter nap for your pets.",
-    "image": "https://i.postimg.cc/CKmj6W8k/heated-bed.jpg",
+    "image": "/p3.jfif",
     "category": "Comfort"
   },
   {
@@ -44,7 +44,7 @@
     "rating": 4.6,
     "slotsAvailable": 5,
     "description": "Keep your pet’s fur healthy with moisturizing shampoo and protective conditioner for winter care.",
-    "image": "https://i.postimg.cc/ZKXf4WPt/winter-grooming.jpg",
+    "image": "/p4.jfif",
     "category": "Grooming"
   },
   {
@@ -56,7 +56,7 @@
     "rating": 5.0,
     "slotsAvailable": 2,
     "description": "Comprehensive vet checkup focused on cold-weather illnesses and skin dryness issues.",
-    "image": "https://i.postimg.cc/fyQqNhbM/winter-checkup.jpg",
+    "image": "/p5.jfif",
     "category": "Health"
   },
   {
@@ -68,7 +68,7 @@
     "rating": 4.9,
     "slotsAvailable": 8,
     "description": "Safe and warm overnight stay with indoor play areas for pets when owners travel in winter.",
-    "image": "https://i.postimg.cc/BnVY5Vdg/boarding.jpg",
+    "image": "/p6.jfif",
     "category": "Boarding"
   }
 ]

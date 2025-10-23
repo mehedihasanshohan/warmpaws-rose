@@ -6,13 +6,14 @@ import p4 from "/p4.jfif";
 import p5 from "/p5.jfif";
 import p6 from "/p6.jfif";
 import { FaStar } from 'react-icons/fa';
+import { Link } from "react-router";
 
 const PetServices = () => {
   const [services, setServices] = useState([]);
 
-  const images = [p1, p2, p3, p4, p5, p6]; // store imported images here
+  const images = [p1, p2, p3, p4, p5, p6];
 
-  // Fetch data from JSON file
+
   useEffect(() => {
     fetch("/data/petsData.json")
       .then((res) => res.json())
@@ -33,9 +34,8 @@ const PetServices = () => {
               key={service.serviceId}
               className="card bg-white p-4 shadow-lg rounded-2xl overflow-hidden transition-all duration-300"
             >
-              {/* Use dynamic image by index */}
               <img
-                src={images[index % images.length]} // loops through 6 images
+                src={images[index % images.length]}
                 alt={service.serviceName}
                 className="h-48 w-full rounded-lg object-cover"
               />
@@ -54,9 +54,11 @@ const PetServices = () => {
                   </p>
                 </div>
 
-                <button className="bg-blue-400 rounded-md p-2 font-medium w-full mt-2 cursor-pointer hover:bg-blue-600">
-                  View Details
-                </button>
+                <Link to={`/service/${service.serviceId}`}>
+                  <button className="bg-blue-400 rounded-md p-2 font-medium w-full mt-2 cursor-pointer hover:bg-blue-600 text-white">
+                    View Details
+                  </button>
+                </Link>
               </div>
             </div>
           ))}
