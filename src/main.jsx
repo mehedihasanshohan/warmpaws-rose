@@ -12,6 +12,7 @@ import ForgetPassword from './components/forget-passwword/ForgetPassword.jsx';
 import MyProfile from './pages/myprofile/MyProfile.jsx';
 import ServiceDetails from './components/PetsServices/ServiceDetails.jsx';
 import AuthProvider from './context/AuthProvider.jsx';
+import PrivateRoutes from './Routes/PrivateRoutes.jsx';
 
 
 const router = createBrowserRouter([
@@ -24,7 +25,12 @@ const router = createBrowserRouter([
       {path: '/login', element: <Login></Login>},
       {path: '/register', element:<Register></Register>},
       {path:'/forget-password', element:<ForgetPassword></ForgetPassword>},
-      {path: '/my-profile', element: <MyProfile></MyProfile>}
+      {
+        path: '/my-profile',
+        element: <PrivateRoutes>
+          <MyProfile></MyProfile>
+        </PrivateRoutes>
+      }
     ]
   },
   {
