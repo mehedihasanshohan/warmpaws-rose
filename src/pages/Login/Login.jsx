@@ -1,12 +1,14 @@
-import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
-import {  useState } from 'react'
+import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import {  use, useState } from 'react'
 import { BsEye } from 'react-icons/bs';
 import { BsEyeSlash } from 'react-icons/bs';
 import { Link, useNavigate } from 'react-router';
 import auth from '../../firebase/firebase.config';
 import google from '/google.png'
+import { AuthContext } from '../../context/AuthContext.';
 
 const Login = () => {
+  const {logInUser} = use(AuthContext);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -47,7 +49,8 @@ const Login = () => {
       return;
     }
 
-    signInWithEmailAndPassword(auth, email, password)
+    // signInWithEmailAndPassword(auth, email, password)
+    logInUser(email, password)
       .then(result => {
         console.log(result.user);
         setSuccess('login successfully')

@@ -1,12 +1,15 @@
-import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
-import { useState } from 'react'
+import {  GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { use, useState } from 'react'
 import auth from '../../firebase/firebase.config';
 import { BsEye } from 'react-icons/bs';
 import { BsEyeSlash } from 'react-icons/bs';
 import { Link, useNavigate } from 'react-router';
 import google from '/google.png'
+import { AuthContext } from '../../context/AuthContext.';
 
 const Register = () => {
+  const {createUser} = use(AuthContext);
+
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -48,8 +51,8 @@ const Register = () => {
       return;
     }
 
-    createUserWithEmailAndPassword(auth, email, password)
-     .then(result => {
+    createUser(email, password)
+    .then(result => {
       console.log(result.user)
       setSuccess("Account Created Successfully");
       e.target.reset()

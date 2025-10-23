@@ -2,6 +2,9 @@ import React from "react";
 import pets3 from '/pets3.jfif'
 import pets4 from '/pets4.jfif'
 import pets5 from '/pets5.jfif'
+import pets6 from '/pets6.jfif'
+import pets7 from '/pets7.jfif'
+import pets8 from '/pets8.jfif'
 
 const WinterCareTips = () => {
   const tips = [
@@ -24,21 +27,21 @@ const WinterCareTips = () => {
       title: "Avoid Cold Baths",
       description:
         "Limit bathing your pet in winter. If necessary, use warm water and dry them thoroughly to prevent chills.",
-      image: pets5,
+      image: pets6,
     },
     {
       id: 4,
       title: "Provide Warm Bedding",
       description:
         "Make sure your pet’s bed is away from drafts and placed on a warm surface with soft blankets.",
-      image: pets3,
+      image: pets7,
     },
     {
       id: 5,
       title: "Watch for Cold Symptoms",
       description:
         "Look out for shivering, lethargy, or coughing. Consult a vet immediately if your pet seems unwell.",
-      image:pets4,
+      image:pets8,
     },
     {
       id: 6,

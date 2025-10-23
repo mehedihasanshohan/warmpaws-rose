@@ -1,12 +1,14 @@
 import React from "react";
 import { FaQuoteLeft } from "react-icons/fa";
-
+import t1 from '/t1.jfif'
+import t2 from '/t2.jfif'
+import t3 from '/t3.jfif'
 const testimonials = [
   {
     id: 1,
     name: "Juliana",
     role: "Pet Doctor",
-    img: "https://i.postimg.cc/63dKXfXk/pet-doctor.jpg",
+    img: t1,
     review:
       "WarmPaws helped my clients prepare their pets for winter with amazing care services. Truly a lifesaver during the cold season!",
   },
@@ -14,7 +16,7 @@ const testimonials = [
     id: 2,
     name: "John Doe",
     role: "Pet Advisor",
-    img: "https://i.postimg.cc/FHz8kGZL/pet-advisor.jpg",
+    img: t2,
     review:
       "I love how easy it is to find trusted services for pets. The winter grooming options are excellent!",
   },
@@ -22,7 +24,7 @@ const testimonials = [
     id: 3,
     name: "Angelina",
     role: "Pet Analyser",
-    img: "https://i.postimg.cc/6p4Kv0jR/pet-analyser.jpg",
+    img: t3,
     review:
       "As a pet owner, WarmPaws made me confident that my pets are safe and comfortable this winter. Highly recommended!",
   },

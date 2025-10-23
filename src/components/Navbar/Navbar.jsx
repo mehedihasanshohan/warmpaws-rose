@@ -1,24 +1,11 @@
-import { GoogleAuthProvider, signInWithPopup, signOut } from 'firebase/auth'
+import { GoogleAuthProvider, signOut } from 'firebase/auth'
 import React, { useState } from 'react'
 import { NavLink} from 'react-router'
 import auth from '../../firebase/firebase.config';
 
-  const googleProvider = new GoogleAuthProvider();
-
-
 const Navbar = () => {
   const [user, setUser] = useState(null);
 
-  const handleGoogleSignIn = () =>{
-    signInWithPopup(auth, googleProvider)
-    .then(result =>{
-      console.log(result.user);
-      setUser(result.user)
-    })
-    .catch(error => {
-      console.log(error)
-    })
-  }
 
   const handleGoogleSignOut =() => {
     signOut(auth)
@@ -32,7 +19,7 @@ const Navbar = () => {
   }
 
   return (
-   <div className="navbar bg-base-100 shadow-sm animate__animated animate__fadeInRight">
+   <div className="navbar bg-base-100 shadow-sm  bg-linear-to-r from-teal-600 via-teal-700 to-teal-600">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -46,20 +33,18 @@ const Navbar = () => {
         <li><NavLink>My Profile</NavLink></li>
       </ul>
     </div>
-    <a className="text-3xl font-semibold ml-2 text-teal-600">warmpaws rose</a>
+    <a className="text-3xl font-semibold text-white ml-2 animate__animated animate__rollIn">warmpaws rose</a>
   </div>
-  <div className="navbar-center hidden lg:flex">
-    <ul className="flex justify-center items-center gap-4  font-semibold text-2xl px-1">
+  <div className="navbar-center hidden lg:flex animate__animated animate__fadeInLeft" >
+    <ul className="flex justify-center items-center gap-4 text-white  font-semibold text-2xl px-1">
       <li className='hover:underline'><NavLink>Home</NavLink></li>
       <li className='hover:underline'><NavLink>Services</NavLink></li>
-      <li className='hover:underline'><NavLink>My Profile</NavLink></li>
+      <li className='hover:underline'><NavLink to='/my-profile'>My Profile</NavLink></li>
     </ul>
   </div>
-  <div className="navbar-end flex gap-2">
-    <NavLink to='/profile'>My Profile</NavLink>
+  <div className="navbar-end text-white flex gap-2 animate__animated animate__fadeInRight">
     <NavLink to='/login'>Login</NavLink>
     {user ? <NavLink onClick={handleGoogleSignOut}>Logout</NavLink> : <NavLink to='/register'>Register</NavLink>}
-    <NavLink to='/login' onClick={handleGoogleSignIn}><button className='btn btn-info'>Google</button></NavLink>
   </div>
 </div>
   )

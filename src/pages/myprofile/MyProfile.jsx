@@ -6,14 +6,13 @@ const MyProfile = () => {
   const user = 'shohan';
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-50 px-4">
-      <div className="bg-white shadow-lg rounded-2xl p-8 w-full max-w-md text-center">
-        <h2 className="text-2xl font-bold text-gray-800 mb-6">
+    <div className="flex justify-center items-center min-h-screen bg-linear-to-r from-[#536976]  to-[#292e49] px-4">
+      <div className="bg-sky-700/30  shadow-lg rounded-2xl p-8 w-full max-w-md text-center">
+        <h2 className="text-2xl font-bold text-white mb-6">
           My Profile
         </h2>
 
-        {/* User Image */}
-        <div className="flex justify-center mb-6">
+        <div className="flex justify-center mb-6 ">
           <img
             src={
               user?.photoURL ||
@@ -26,17 +25,16 @@ const MyProfile = () => {
 
         {/* User Info */}
         <div className="text-left space-y-3">
-          <p className="text-gray-700">
-            <span className="font-semibold text-gray-900">Name:</span>{" "}
-            {user?.displayName || "Anonymous"}
+          <p className="text-white">
+            <span className="font-semibold text-amber-500">Name:</span>{" "}
+            {user?.displayName || "Not available"}
           </p>
-          <p className="text-gray-700">
-            <span className="font-semibold text-gray-900">Email:</span>{" "}
+          <p className="text-white">
+            <span className="font-semibold text-amber-500">Email:</span>{" "}
             {user?.email || "Not available"}
           </p>
         </div>
 
-        {/* Update Profile Button */}
         <button
           // onClick={() => navigate("/update-profile")}
           className="mt-8 bg-amber-500 hover:bg-amber-600 text-white font-semibold py-2 px-6 rounded-lg transition duration-300"

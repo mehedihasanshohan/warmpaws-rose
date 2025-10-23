@@ -39,7 +39,7 @@ const ServiceDetails = () => {
           <img
             src={service.image}
             alt={service.serviceName}
-            className="w-full h-72 object-cover rounded-xl mb-6"
+            className="w-full h-128 object-cover rounded-2xl mb-6"
           />
         )}
         <h2 className="text-3xl font-bold text-blue-700 mb-4">{service.serviceName}</h2>
@@ -59,6 +59,12 @@ const ServiceDetails = () => {
           </p>
           <FaStar className="mt-1 text-yellow-400"></FaStar>
         </div>
+        <p className="text-gray-700 mb-4" >
+          <span className="font-semibold text-blue-600">Category:</span> {service.category}
+        </p>
+        <p className="text-gray-700 mb-4" >
+          <span className="font-semibold text-blue-600">Available Slots:</span> {service.slotsAvailable}
+        </p>
         <p className="text-gray-700 mb-4">
           <span className="font-semibold text-blue-600">Description:</span> {service.description}
         </p>
