@@ -1,5 +1,5 @@
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { useState } from 'react'
+import {  useState } from 'react'
 import { BsEye } from 'react-icons/bs';
 import { BsEyeSlash } from 'react-icons/bs';
 import { Link, useNavigate } from 'react-router';
@@ -9,7 +9,7 @@ const Login = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-
+  const [email, setEmail] = useState("");
   const navigate = useNavigate();
 
   const handleLogin = e => {
@@ -44,14 +44,14 @@ const Login = () => {
         console.log(error)
         setError(error.message)
       })
-
   }
-
 
   const handleTogglePasswordShow = e => {
     e.preventDefault();
     setShowPassword(!showPassword);
   }
+
+
 
   return (
     <div className="card bg-base-100 m-auto mt-16 mb-16 w-full max-w-sm shrink-0 shadow-2xl">
@@ -60,8 +60,15 @@ const Login = () => {
         <form onSubmit={handleLogin}>
           <fieldset className="fieldset">
           <label className="label">Email</label>
-          <input type="email" name='email' autoComplete='off'
-              className="input" placeholder="Email" />
+          <input
+            type="email"
+            name='email'
+            autoComplete='off'
+            className="input"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
           <label className="label">Password</label>
 
           <div className='relative'>
@@ -75,7 +82,14 @@ const Login = () => {
                </button>
           </div>
 
-          <div><a className="link link-hover">Forgot password?</a></div>
+          <div>
+            <Link
+                to='/forget-password'
+                state={{ email: email }}
+            >
+             Forgot password?
+            </Link>
+          </div>
           <button className="btn btn-info mt-4">Login</button>
         </fieldset>
         {
