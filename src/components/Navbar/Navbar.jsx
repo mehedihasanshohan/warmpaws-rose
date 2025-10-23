@@ -1,17 +1,17 @@
-import { GoogleAuthProvider, signOut } from 'firebase/auth'
-import React, { useState } from 'react'
+import { GoogleAuthProvider } from 'firebase/auth'
+import React, { use} from 'react'
 import { NavLink} from 'react-router'
-import auth from '../../firebase/firebase.config';
+// import auth from '../../firebase/firebase.config';
+import { AuthContext } from '../../context/AuthContext.';
 
 const Navbar = () => {
-  const [user, setUser] = useState(null);
-
+  const {user, signOutUser} = use(AuthContext);
+  // const photoUrl  = user.photoURL;
 
   const handleGoogleSignOut =() => {
-    signOut(auth)
+    signOutUser()
     .then( ()=> {
       alert('sign out')
-      setUser(null)
     })
     .catch(error => {
       console.log(error)
@@ -43,7 +43,7 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end text-white flex gap-2 animate__animated animate__fadeInRight">
-    <NavLink to='/login'>Login</NavLink>
+    {/* <img src={photoUrl} className='h-8' alt="" /> */}
     {user ? <NavLink onClick={handleGoogleSignOut}>Logout</NavLink> : <NavLink to='/register'>Register</NavLink>}
   </div>
 </div>
