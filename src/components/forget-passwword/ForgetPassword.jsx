@@ -1,35 +1,34 @@
 import { useLocation } from "react-router";
 import { useState } from "react";
-// import { sendPasswordResetEmail } from "firebase/auth";
-// import auth from "../../firebase/firebase.config";
+import { sendPasswordResetEmail } from "firebase/auth";
+import auth from "../../firebase/firebase.config";
 
 const ForgetPassword = () => {
   const location = useLocation();
 
-  // get email from login page if available
   const initialEmail = location.state?.email || "";
   const [email, setEmail] = useState(initialEmail);
-  // const [message, setMessage] = useState("");
+  const [message, setMessage] = useState("");
   console.log(initialEmail);
-  // const handleResetPassword = (e) => {
-  //   e.preventDefault();
-  //   if (!email) {
-  //     setMessage("Please enter your email.");
-  //     return;
-  //   }
 
-  //   sendPasswordResetEmail(auth, email)
-  //     .then(() => {
-  //       setMessage("Password reset email sent! Check your inbox.");
-  //       setTimeout(() => {
-  //         // optional: redirect to Gmail or login page
-  //         window.location.href = "https://mail.google.com";
-  //       }, 1500);
-  //     })
-  //     .catch((error) => {
-  //       setMessage(error.message);
-  //     });
-  // };
+  const handleForgetPassword = (e) => {
+    e.preventDefault();
+    if (!email) {
+      setMessage("Please enter your email.");
+      return;
+    }
+
+    sendPasswordResetEmail(auth, email)
+      .then(() => {
+        setMessage("Password reset email sent! Check your inbox.");
+        setTimeout(() => {
+          window.open = "https://mail.google.com", "_blank";
+        }, 1500);
+      })
+      .catch((error) => {
+        setMessage(error.message);
+      });
+  };
 
   return (
     <div className="card bg-base-100 m-auto mt-16 mb-16 w-full max-w-sm shadow-2xl">
@@ -45,10 +44,12 @@ const ForgetPassword = () => {
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter your email"
           />
-          <button className="btn btn-info mt-4">Reset Password</button>
+          <button
+            onClick={handleForgetPassword}
+            className="btn btn-info mt-4">Reset Password</button>
         </form>
 
-        {/* {message && <p className="mt-2 text-green-600">{message}</p>} */}
+        {message && <p className="mt-2 text-green-600">{message}</p>}
       </div>
     </div>
   );
