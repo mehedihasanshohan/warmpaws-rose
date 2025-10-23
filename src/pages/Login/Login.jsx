@@ -2,7 +2,7 @@ import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import {  use, useState } from 'react'
 import { BsEye } from 'react-icons/bs';
 import { BsEyeSlash } from 'react-icons/bs';
-import { Link, useNavigate } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import auth from '../../firebase/firebase.config';
 import google from '/google.png'
 import { AuthContext } from '../../context/AuthContext.';
@@ -14,6 +14,7 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const navigate = useNavigate();
+  const location = useLocation();
   const googleprovider = new GoogleAuthProvider()
 
   const handleGoogleSignIn = () => {
@@ -54,7 +55,7 @@ const Login = () => {
       .then(result => {
         console.log(result.user);
         setSuccess('login successfully')
-        navigate('/')
+        navigate(location.state || '/')
       })
       .catch(error => {
         console.log(error)
