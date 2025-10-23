@@ -2,13 +2,15 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useState } from 'react'
 import { BsEye } from 'react-icons/bs';
 import { BsEyeSlash } from 'react-icons/bs';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import auth from '../../firebase/firebase.config';
 
 const Login = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleLogin = e => {
     e.preventDefault();
@@ -36,6 +38,7 @@ const Login = () => {
       .then(result => {
         console.log(result.user);
         setSuccess('login successfully')
+        navigate('/')
       })
       .catch(error => {
         console.log(error)
