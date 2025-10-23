@@ -1,20 +1,42 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import React from 'react'
+import React, { useState } from 'react'
 import auth from '../../firebase/firebase.config';
 
 const Register = () => {
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+
   const handleRegister = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
     console.log(email, password);
 
+    setError("");
+    setSuccess("");
+
+    if (password.length < 6) {
+      setError("Password must be at least 6 characters long.");
+      return;
+    }
+    if (!/[A-Z]/.test(password)) {
+      setError("Password must contain at least one uppercase letter.");
+      return;
+    }
+    if (!/[a-z]/.test(password)) {
+      setError("Password must contain at least one lowercase letter.");
+      return;
+    }
+
     createUserWithEmailAndPassword(auth, email, password)
-     .then(result=> {
+     .then(result => {
       console.log(result.user)
+      setSuccess("Account Created Successfully");
+      e.target.reset()
      })
      .catch(error => {
-      console.log(error)
+      console.log(error.message)
+      setError(error.message)
      })
   }
 
@@ -34,8 +56,15 @@ const Register = () => {
           <label className="label">Password</label>
           <input type="password" name='password' className="input" placeholder="Password" />
           <div><a className="link link-hover">Forgot password?</a></div>
-          <button className="btn btn-neutral mt-4">Login</button>
+          <button className="btn btn-info mt-4">Login</button>
         </fieldset>
+        {
+          success && (
+          <p className='text-green-600'>{success}</p>
+        )}
+        {
+          error && <p className='text-red-500'>{error}</p>
+        }
         </form>
       </div>
     </div>
