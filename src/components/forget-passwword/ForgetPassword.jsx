@@ -22,7 +22,7 @@ const ForgetPassword = () => {
       .then(() => {
         setMessage("Password reset email sent! Check your inbox.");
         setTimeout(() => {
-          window.open = "https://mail.google.com", "_blank";
+          window.open( "https://mail.google.com", "_blank");
         }, 1500);
       })
       .catch((error) => {

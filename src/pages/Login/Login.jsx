@@ -1,9 +1,10 @@
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import {  useState } from 'react'
 import { BsEye } from 'react-icons/bs';
 import { BsEyeSlash } from 'react-icons/bs';
 import { Link, useNavigate } from 'react-router';
 import auth from '../../firebase/firebase.config';
+import google from '/google.png'
 
 const Login = () => {
   const [error, setError] = useState("");
@@ -11,6 +12,18 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const navigate = useNavigate();
+  const googleprovider = new GoogleAuthProvider()
+
+  const handleGoogleSignIn = () => {
+    signInWithPopup(auth, googleprovider)
+     .then(result => {
+        setSuccess(`Login successful! Welcome ${result.user.displayName || result.user.email}`);
+        navigate('/');
+     })
+     .catch(error => {
+        setError(error.message)
+     })
+  }
 
   const handleLogin = e => {
     e.preventDefault();
@@ -72,7 +85,7 @@ const Login = () => {
           <label className="label">Password</label>
 
           <div className='relative'>
-            <input type={showPassword ? 'text ': 'password'}
+            <input type={showPassword ? 'text': 'password'}
                name='password' autoComplete='off'
                className="input" placeholder="Password" />
             <button
@@ -91,6 +104,10 @@ const Login = () => {
             </Link>
           </div>
           <button className="btn btn-info mt-4">Login</button>
+          <div className='text-center font-semibold text-md'><p>or</p></div>
+          <button onClick={handleGoogleSignIn} className="btn btn-accent">
+            <img src={google} className='h-4 w-4' alt="" /> Google
+          </button>
         </fieldset>
         {
           success && (
