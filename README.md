@@ -1,16 +1,47 @@
-# React + Vite
+# 🐾 WarmPaws – Pet Care in Winter
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🌟 Project Purpose
+**WarmPaws** is a cozy winter companion platform designed for pet owners to ensure their furry friends stay **warm, safe, and healthy** during the cold season.
+Users can explore **local pet care services**, **winter clothing**, **grooming options**, and **expert tips** — all in one friendly interface.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🔗 Live Website
+ [Visit Live Site](https://your-live-link.netlify.app)
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+##  Key Features
+- Fully responsive design for mobile, tablet, and desktop
+- Firebase Authentication (Email/Password + Google Login)
+- Protected Route for Service Details page
+- JSON-based dynamic service data display
+- Booking form with toast notifications
+- Update Profile feature (Name & Photo)
+- Forget Password functionality (Redirects to Gmail)
+- Password visibility toggle in Login & Signup
+- Smooth animations using AOS and Animate.css
+- Hosted on Netlify with no reload errors
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+##  NPM Packages Used
+| Package | Purpose |
+|----------|----------|
+| `firebase` | For authentication and config |
+| `react-router-dom` | For routing and navigation |
+| `aos` | For scroll animations |
+| `animate.css` | For CSS animations |
+| `react-hot-toast` | For success and error toasts |
+| `swiper` | For hero carousel slider |
+| `tailwindcss` | For styling |
+| `daisyui` | For UI components |
+
+---
+
+##  Developer
+**Mehedi Hasan Shohan**
+📧 [mhshohan01@gmail.com](mailto:mhshohan01@gmail.com)
+
+---
+

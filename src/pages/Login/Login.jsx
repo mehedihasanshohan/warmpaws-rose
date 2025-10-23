@@ -1,4 +1,4 @@
-import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { GoogleAuthProvider} from 'firebase/auth';
 import {  use, useState } from 'react'
 import { BsEye } from 'react-icons/bs';
 import { BsEyeSlash } from 'react-icons/bs';
@@ -8,7 +8,7 @@ import google from '/google.png'
 import { AuthContext } from '../../context/AuthContext.';
 
 const Login = () => {
-  const {logInUser} = use(AuthContext);
+  const {logInUser, signInWithGoogle} = use(AuthContext);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -18,10 +18,10 @@ const Login = () => {
   const googleprovider = new GoogleAuthProvider()
 
   const handleGoogleSignIn = () => {
-    signInWithPopup(auth, googleprovider)
+    signInWithGoogle(auth, googleprovider)
      .then(result => {
         setSuccess(`Login successful! Welcome ${result.user.displayName || result.user.email}`);
-        navigate('/');
+        navigate(location.state || '/');
      })
      .catch(error => {
         setError(error.message)
