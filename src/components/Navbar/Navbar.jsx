@@ -7,6 +7,7 @@ import { AuthContext } from '../../context/AuthContext.';
 const Navbar = () => {
   const {user, signOutUser} = use(AuthContext);
   // const photoUrl  = user.photoURL;
+  console.log(user);
 
   const handleGoogleSignOut =() => {
     signOutUser()
@@ -42,10 +43,43 @@ const Navbar = () => {
       <li className='hover:underline'><NavLink to='/my-profile'>My Profile</NavLink></li>
     </ul>
   </div>
-  <div className="navbar-end text-white flex gap-2 animate__animated animate__fadeInRight">
-    {/* <img src={photoUrl} className='h-8' alt="" /> */}
+  {/* <div className="navbar-end text-white flex gap-2 animate__animated animate__fadeInRight">
+
+    {
+      user &&   <img src={user.photoURL} data-tip={'shohan'} className='h-8 rounded-full tooltip tooltip-bottom' alt="" />
+    }
     {user ? <NavLink onClick={handleGoogleSignOut}>Logout</NavLink> : <NavLink to='/register'>Register</NavLink>}
-  </div>
+  </div> */}
+
+  <div className="navbar-end text-white flex items-center gap-3 animate__animated animate__fadeInRight">
+  {user && (
+    <div className="tooltip tooltip-left" data-tip={user.displayName || "User"}>
+      <img
+        src={user.photoURL || "https://i.ibb.co/4pDNDk1/avatar.png"}
+        alt="User Avatar"
+        className="h-9 w-9 rounded-full border border-white cursor-pointer"
+      />
+    </div>
+  )}
+
+  {user ? (
+    <button
+      onClick={handleGoogleSignOut}
+      className="btn btn-sm bg-red-500 hover:bg-red-600 text-white border-none transition-all duration-300"
+    >
+      Logout
+    </button>
+  ) : (
+    <NavLink
+      to="/register"
+      className="btn btn-sm bg-blue-500 hover:bg-blue-600 text-white border-none transition-all duration-300"
+    >
+      Register
+    </NavLink>
+  )}
+</div>
+
+
 </div>
   )
 }
