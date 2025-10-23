@@ -1,9 +1,9 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import React, { useState } from 'react'
+import { useState } from 'react'
 import auth from '../../firebase/firebase.config';
 import { BsEye } from 'react-icons/bs';
 import { BsEyeSlash } from 'react-icons/bs';
-import { FaEyeSlash } from 'react-icons/fa';
+import { Link } from 'react-router';
 
 const Register = () => {
   const [error, setError] = useState("");
@@ -51,23 +51,20 @@ const Register = () => {
   }
 
   return (
-    <div className="hero bg-base-200 min-h-screen">
-  <div className="hero-content flex-col lg:flex-row-reverse">
-    <div className="text-center lg:text-left">
-      <h1 className="text-5xl font-bold">Login now!</h1>
 
-    </div>
-    <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+    <div className="card bg-base-100 m-auto mt-16 mb-16 w-full max-w-sm shrink-0 shadow-2xl">
       <div className="card-body">
+      <h1 className="text-5xl font-bold">Register now!</h1>
         <form onSubmit={handleRegister}>
           <fieldset className="fieldset">
           <label className="label">Email</label>
-          <input type="email" name='email' className="input" placeholder="Email" />
+          <input type="email" name='email' autoComplete='off'
+              className="input" placeholder="Email" />
           <label className="label">Password</label>
 
           <div className='relative'>
             <input type={showPassword ? 'text ': 'password'}
-               name='password'
+               name='password' autoComplete='off'
                className="input" placeholder="Password" />
             <button
                onClick={handleTogglePasswordShow}
@@ -87,10 +84,9 @@ const Register = () => {
           error && <p className='text-red-500'>{error}</p>
         }
         </form>
+        <p>Already have an account?<Link className='text-green-600 font-semibold ml-1' to='/login'>Login</Link> </p>
       </div>
     </div>
-  </div>
-</div>
   )
 }
 
