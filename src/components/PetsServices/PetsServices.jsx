@@ -7,6 +7,7 @@ import p5 from "/p5.jfif";
 import p6 from "/p6.jfif";
 import { FaStar } from 'react-icons/fa';
 import { Link } from "react-router";
+import "animate.css";
 
 const PetServices = () => {
   const [services, setServices] = useState([]);
@@ -22,9 +23,9 @@ const PetServices = () => {
   }, []);
 
   return (
-    <section className="py-12 bg-blue-50">
+    <section className="py-12 bg-blue-50 animate__animated animate__fadeInLeft">
       <div className="max-w-6xl mx-auto px-6">
-        <h2 className="text-3xl font-bold text-center text-blue-700 mb-10">
+        <h2 className=" animate_animated animate_bounce animate_delay-2s text-3xl font-bold text-center text-blue-700 mb-10">
           Popular Winter Care Services
         </h2>
 

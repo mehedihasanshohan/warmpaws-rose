@@ -67,7 +67,7 @@ const Login = () => {
 
 
   return (
-    <div className="card bg-base-100 m-auto mt-16 mb-16 w-full max-w-sm shrink-0 shadow-2xl">
+    <div className="animate__animated animate__bounceIn card bg-base-100 m-auto mt-16 mb-16 w-full max-w-sm shrink-0 shadow-2xl">
       <div className="card-body">
       <h1 className="text-5xl font-bold">Login now!</h1>
         <form onSubmit={handleLogin}>

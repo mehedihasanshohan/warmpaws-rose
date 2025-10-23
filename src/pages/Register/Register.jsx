@@ -68,7 +68,7 @@ const Register = () => {
 
   return (
 
-    <div className="card bg-base-100 m-auto mt-8 mb-16 w-full max-w-sm shrink-0 shadow-xl">
+    <div className="animate__animated animate__wobble card bg-base-100 m-auto mt-8 mb-16 w-full max-w-sm shrink-0 shadow-xl">
       <div className="card-body">
       <h1 className="text-5xl font-bold">Register now!</h1>
         <form onSubmit={handleRegister}>

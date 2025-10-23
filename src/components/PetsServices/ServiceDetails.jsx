@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { FaStar } from 'react-icons/fa';
 
 
@@ -7,6 +7,7 @@ const ServiceDetails = () => {
   const { id } = useParams();
   const [service, setService] = useState(null);
   const [formData, setFormData] = useState({ name: "", email: "" });
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("/data/petsData.json")
@@ -29,15 +30,16 @@ const ServiceDetails = () => {
   };
 
   if (!service) return <p className="text-center mt-10 text-gray-600">Loading...</p>;
-
   return (
-    <div className="bg-blue-50 min-h-screen py-12 px-6">
+    <div className="">
+      <div className="bg-blue-50 min-h-screen py-12 px-6">
+      <button className="btn btn-accent ml-60 mb-4" onClick={()=> navigate(-1)}>Back</button>
       <div className="max-w-4xl mx-auto bg-white p-8 rounded-2xl shadow-md">
         {service.image && (
           <img
             src={service.image}
             alt={service.serviceName}
-            className="w-full h-64 object-cover rounded-xl mb-6"
+            className="w-full h-72 object-cover rounded-xl mb-6"
           />
         )}
         <h2 className="text-3xl font-bold text-blue-700 mb-4">{service.serviceName}</h2>
@@ -94,6 +96,7 @@ const ServiceDetails = () => {
           </form>
         </div>
       </div>
+    </div>
     </div>
   );
 };

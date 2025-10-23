@@ -4,7 +4,7 @@ import pets2 from '/pets2.webp'
 
 const Slider = () => {
   return (
-    <div>
+    <div className='animate__animated animate__swing'>
       <div className="carousel w-full">
   <div id="slide1" className="carousel-item relative w-full">
     <img
