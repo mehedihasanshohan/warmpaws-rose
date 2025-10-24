@@ -1,14 +1,12 @@
 import { GoogleAuthProvider } from 'firebase/auth'
 import React, { use} from 'react'
 import { NavLink} from 'react-router'
-// import auth from '../../firebase/firebase.config';
 import { AuthContext } from '../../context/AuthContext.';
 import { toast } from 'react-toastify';
 
 const Navbar = () => {
   const {user, signOutUser} = use(AuthContext);
-  // const photoUrl  = user.photoURL;
-  console.log(user);
+  // console.log(user);
 
   const handleGoogleSignOut =() => {
     signOutUser()
@@ -16,7 +14,8 @@ const Navbar = () => {
       toast.success('sign out successfully')
     })
     .catch(error => {
-      console.log(error)
+      // console.log(error)
+      toast.error(error.message);
     })
   }
 
@@ -40,9 +39,9 @@ const Navbar = () => {
   </div>
   <div className="navbar-center hidden lg:flex animate__animated animate__fadeInLeft" >
     <ul className="flex justify-center items-center gap-4 text-white  font-semibold text-2xl px-1">
-      <li className='hover:underline'><NavLink>Home</NavLink></li>
-      <li className='hover:underline'><NavLink to='/services'>Services</NavLink></li>
-      <li className='hover:underline'><NavLink to='/my-profile'>My Profile</NavLink></li>
+      <NavLink to='/'>Home</NavLink>
+      <NavLink to='/services'>Services</NavLink>
+      <NavLink to='/my-profile'>My Profile</NavLink>
     </ul>
   </div>
 

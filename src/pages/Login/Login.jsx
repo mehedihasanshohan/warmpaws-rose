@@ -3,7 +3,7 @@ import {  use, useState } from 'react'
 import { BsEye } from 'react-icons/bs';
 import { BsEyeSlash } from 'react-icons/bs';
 import { Link, useLocation, useNavigate } from 'react-router';
-import auth from '../../firebase/firebase.config';
+// import auth from '../../firebase/firebase.config';
 import google from '/google.png'
 import { AuthContext } from '../../context/AuthContext.';
 import { toast } from 'react-toastify';
@@ -16,10 +16,10 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
-  const googleprovider = new GoogleAuthProvider()
+  // const googleprovider = new GoogleAuthProvider()
 
   const handleGoogleSignIn = () => {
-    signInWithGoogle(auth, googleprovider)
+    signInWithGoogle()
      .then(result => {
         setSuccess(`Login successful! Welcome ${result.user.displayName || result.user.email}`);
         navigate(location.state || '/');
@@ -95,6 +95,7 @@ const Login = () => {
                name='password' autoComplete='off'
                className="input" placeholder="Password" />
             <button
+               type='button'
                onClick={handleTogglePasswordShow}
                className='btn btn-xs top-2 right-6 absolute'>
                 { showPassword ? <BsEyeSlash></BsEyeSlash> : <BsEye></BsEye>}
@@ -111,7 +112,7 @@ const Login = () => {
           </div>
           <button className="btn btn-info mt-4">Login</button>
           <div className='text-center font-semibold text-md'><p>or</p></div>
-          <button onClick={handleGoogleSignIn} className="btn btn-accent">
+          <button type='button' onClick={handleGoogleSignIn} className="btn btn-accent">
             <img src={google} className='h-4 w-4' alt="" /> Google
           </button>
         </fieldset>

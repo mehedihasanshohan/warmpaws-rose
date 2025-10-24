@@ -1,6 +1,6 @@
-import {  GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
-import { use, useState } from 'react'
-import auth from '../../firebase/firebase.config';
+import {  GoogleAuthProvider} from 'firebase/auth';
+import {  useContext, useState } from 'react'
+// import auth from '../../firebase/firebase.config';
 import { BsEye } from 'react-icons/bs';
 import { BsEyeSlash } from 'react-icons/bs';
 import { Link, useNavigate } from 'react-router';
@@ -9,16 +9,16 @@ import { AuthContext } from '../../context/AuthContext.';
 import { toast } from 'react-toastify';
 
 const Register = () => {
-  const {createUser, updateUserProfile} = use(AuthContext);
+  const {createUser, updateUserProfile, signInWithGoogle} = useContext(AuthContext);
 
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
-  const googleProvider = new GoogleAuthProvider();
+  // const googleProvider = new GoogleAuthProvider();
 
   const handleGoogleSignIn = () => {
-     signInWithPopup(auth, googleProvider)
+     signInWithGoogle()
       .then(result => {
          setSuccess(`Login successful! Welcome ${result.user.displayName || result.user.email}`);
          toast.success('sign in successfully completed')
@@ -35,7 +35,7 @@ const Register = () => {
     const photoUrl = e.target.photo.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
-    console.log(name, photoUrl, email, password);
+    // console.log(name, photoUrl, email, password);
 
     setError("");
     setSuccess("");
@@ -116,7 +116,7 @@ const Register = () => {
           <div><a className="link link-hover">Forgot password?</a></div>
           <button className="btn btn-info mt-4">Register</button>
           <div className='text-center font-semibold text-md'><p>or</p></div>
-          <button onClick={handleGoogleSignIn} className="btn btn-accent">
+          <button type='button' onClick={handleGoogleSignIn} className="btn btn-accent">
             <img src={google} className='h-4 w-4' alt="" /> Google
           </button>
         </fieldset>

@@ -6,6 +6,6 @@ body{
   font-family: "Poppins", sans-serif;
 }
 
-nav a.active{
+ul a.active{
   text-decoration: underline;
 }
