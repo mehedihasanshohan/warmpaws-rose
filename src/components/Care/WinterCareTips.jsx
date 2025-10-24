@@ -1,10 +1,4 @@
 import React from "react";
-import pets3 from '/pets3.jfif'
-import pets4 from '/pets4.jfif'
-import pets5 from '/pets5.jfif'
-import pets6 from '/pets6.jfif'
-import pets7 from '/pets7.jfif'
-import pets8 from '/pets8.jfif'
 
 const WinterCareTips = () => {
   const tips = [
@@ -13,42 +7,42 @@ const WinterCareTips = () => {
       title: "Keep Them Warm",
       description:
         "Ensure your pets have cozy blankets or sweaters when temperatures drop. Small or short-haired pets need extra warmth.",
-      image: pets3,
+      image: "https://i.ibb.co.com/MkGDyGnk/pets3.jpg",
     },
     {
       id: 2,
       title: "Protect Their Paws",
       description:
         "Use pet-safe paw balm or little boots when walking outside. Snow and ice can cause cracks or frostbite.",
-      image: pets4,
+      image: "https://i.ibb.co.com/b5BCcmfL/pets4.jpg",
     },
     {
       id: 3,
       title: "Avoid Cold Baths",
       description:
         "Limit bathing your pet in winter. If necessary, use warm water and dry them thoroughly to prevent chills.",
-      image: pets6,
+      image: "https://i.ibb.co.com/VpqTK08f/pets5.jpg",
     },
     {
       id: 4,
       title: "Provide Warm Bedding",
       description:
         "Make sure your pet’s bed is away from drafts and placed on a warm surface with soft blankets.",
-      image: pets7,
+      image: "https://i.ibb.co.com/zzcJkYQ/pets6.jpg",
     },
     {
       id: 5,
       title: "Watch for Cold Symptoms",
       description:
         "Look out for shivering, lethargy, or coughing. Consult a vet immediately if your pet seems unwell.",
-      image:pets8,
+      image:"https://i.ibb.co.com/xtynybyZ/pets7.jpg",
     },
     {
       id: 6,
       title: "Avoid Cold Baths",
       description:
         "Limit bathing your pet in winter. If necessary, use warm water and dry them thoroughly to prevent chills.",
-      image: pets5,
+      image: "https://i.ibb.co.com/673h1HFD/pets8.jpg",
     },
   ];
 

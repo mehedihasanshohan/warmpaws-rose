@@ -1,30 +1,27 @@
 import React from "react";
 import { FaQuoteLeft } from "react-icons/fa";
-import t1 from '/t1.jfif'
-import t2 from '/t2.jfif'
-import t3 from '/t3.jfif'
 const testimonials = [
   {
     id: 1,
     name: "Juliana",
     role: "Pet Doctor",
-    img: t1,
+    img: "https://i.ibb.co.com/qYFWWm6t/t1.jpg",
     review:
       "WarmPaws helped my clients prepare their pets for winter with amazing care services. Truly a lifesaver during the cold season!",
   },
   {
     id: 2,
-    name: "John Doe",
+    name: "Angelina",
     role: "Pet Advisor",
-    img: t2,
+    img: "https://i.ibb.co.com/cS3ntjwx/t2.jpg",
     review:
       "I love how easy it is to find trusted services for pets. The winter grooming options are excellent!",
   },
   {
     id: 3,
-    name: "Angelina",
+    name: "Mr. Harpit ",
     role: "Pet Analyser",
-    img: t3,
+    img: "https://i.ibb.co.com/kg3PNDtX/t3.jpg",
     review:
       "As a pet owner, WarmPaws made me confident that my pets are safe and comfortable this winter. Highly recommended!",
   },

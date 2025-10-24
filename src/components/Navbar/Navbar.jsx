@@ -47,10 +47,10 @@ const Navbar = () => {
   </div>
 
   <div className="navbar-end text-white flex items-center gap-3 animate__animated animate__fadeInRight">
-  {user && (
+   {user && (
     <div className="tooltip tooltip-left" data-tip={user.displayName || "User"}>
       <img
-        src={user.photoURL || "https://i.ibb.co/4pDNDk1/avatar.png"}
+        src={user.photoURL || "https://i.ibb.co.com/LzzpgV0z/icons8-person-94.png"}
         alt="User Avatar"
         className="h-9 w-9 rounded-full border border-white cursor-pointer"
       />

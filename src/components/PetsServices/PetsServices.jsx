@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from "react";
-import p1 from "/p1.jfif";
-import p2 from "/p2.jfif";
-import p3 from "/p3.jfif";
-import p4 from "/pets.webp";
-import p5 from "/p5.jfif";
-import p6 from "/p6.jfif";
 import { FaStar } from 'react-icons/fa';
 import { Link } from "react-router";
 
 const PetServices = () => {
   const [services, setServices] = useState([]);
 
-  const images = [p1, p2, p3, p4, p5, p6];
+  const images = [
+    "https://i.ibb.co.com/jP0tkFGh/p1.jpg",
+    "https://i.ibb.co.com/VYnmrNN5/p2.jpg",
+    "https://i.ibb.co.com/S75T1TSs/p3.jpg",
+    "https://i.ibb.co.com/0pcFdGRG/p5.jpg",
+    "https://i.ibb.co.com/TMmzHqpG/p6.jpg",
+    "https://i.ibb.co.com/d0rwzgtD/pets2.webp"
+  ];
 
 
   useEffect(() => {

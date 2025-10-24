@@ -54,13 +54,13 @@ const Register = () => {
     }
 
     createUser(email, password)
-  .then(result => {
-    console.log(result.user);
+     .then(result => {
+     console.log(result.user);
 
     //  Update the profile with name and photo
     updateUserProfile(name, photoUrl)
       .then(() => {
-        toast.success("Profile updated successfully");
+        toast.success("Account register successfully");
         setSuccess("Account Created & Profile Updated Successfully");
         e.target.reset();
         navigate('/');
@@ -74,6 +74,7 @@ const Register = () => {
   .catch(error => {
     console.log(error.message);
     setError(error.message);
+    toast.error('this account already register')
   });
 
   }

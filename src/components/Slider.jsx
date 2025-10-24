@@ -53,10 +53,6 @@
 
 
 import React from 'react'
-import pets1 from '/pets1.avif'
-import w1 from '/w1.jfif'
-import w2 from '/w2.jfif'
-import w3 from '/w3.jfif'
 
 const Slider = () => {
   return (
@@ -65,7 +61,7 @@ const Slider = () => {
 
         {/* Slide 1 */}
         <div id="slide1" className="carousel-item relative w-full">
-          <img src={w1} className="w-full h-128 object-cover" />
+          <img src="https://i.ibb.co.com/rKmgQsxj/w1.jpg" className="w-full h-128 object-cover" />
 
           {/* Text overlay */}
           <div className="absolute inset-0 flex flex-col justify-start items-center text-white bg-black/40 pt-28">
@@ -83,7 +79,7 @@ const Slider = () => {
 
         {/* Slide 2 */}
         <div id="slide2" className="carousel-item relative w-full">
-          <img src={w2} className="w-full h-128 object-cover" />
+          <img src="https://i.ibb.co.com/HDqDt2Xv/w2.jpg" className="w-full h-128 object-cover" />
 
           <div className="absolute inset-0 flex flex-col justify-start items-center text-white bg-black/40 pt-28">
             <h2 className="text-4xl font-bold mb-3 pt-4">Professional Grooming</h2>
@@ -100,7 +96,7 @@ const Slider = () => {
 
         {/* Slide 3 */}
         <div id="slide3" className="carousel-item relative w-full">
-          <img src={w3} className="w-full h-128 object-cover" />
+          <img src="https://i.ibb.co.com/jPT84XxD/w3.jpg" className="w-full h-128 object-cover" />
 
           <div className="absolute inset-0 flex flex-col justify-start items-center text-white bg-black/40 pt-28">
             <h2 className="text-4xl font-bold mb-3 pt-4">Winter Boarding</h2>
@@ -117,7 +113,7 @@ const Slider = () => {
 
         {/* Slide 4 */}
         <div id="slide4" className="carousel-item relative w-full">
-          <img src={pets1} className="w-full h-128 object-cover" />
+          <img src="https://i.ibb.co.com/7xvn2gWv/pets1.jpg" className="w-full h-128 object-cover" />
 
           <div className="absolute inset-0 flex flex-col justify-start items-center text-white bg-black/40 pt-28">
             <h2 className="text-4xl font-bold mb-3 pt-4">Trusted Pet Sitting</h2>

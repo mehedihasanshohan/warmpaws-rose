@@ -1,9 +1,4 @@
 import React from "react";
-import vets1 from '/vets1.jfif'
-import vets2 from '/vets2.jfif'
-import vets3 from '/vets3.jfif'
-import vets4 from '/vets4.jfif'
-
 
 const ExpertVets = () => {
   const vets = [
@@ -13,7 +8,7 @@ const ExpertVets = () => {
       specialty: "Veterinary Surgeon",
       description:
         "Dr. Emily has over 10 years of experience treating pets during the winter season. She specializes in cold-related pet care.",
-      image: vets1,
+      image: "https://i.ibb.co.com/xtXg8TNQ/vets1.jpg",
     },
     {
       id: 2,
@@ -21,7 +16,7 @@ const ExpertVets = () => {
       specialty: "Animal Nutritionist",
       description:
         "Dr. James focuses on winter nutrition and helps pet owners choose the right diet to keep pets healthy and active.",
-      image: vets2,
+      image: "https://i.ibb.co.com/3yS4DJ12/vets2.jpg",
     },
     {
       id: 3,
@@ -29,7 +24,7 @@ const ExpertVets = () => {
       specialty: "Pet Wellness Expert",
       description:
         "Dr. Sofia is passionate about pet comfort and wellness. She offers practical grooming and winter protection tips.",
-      image: vets3,
+      image: "https://i.ibb.co.com/tPb9qVxh/vets3.jpg",
     },
     {
       id: 4,
@@ -37,7 +32,7 @@ const ExpertVets = () => {
       specialty: "Emergency Vet Specialist",
       description:
         "Dr. Liam handles pet emergencies during harsh winters and educates owners on frostbite prevention and care.",
-      image: vets4,
+      image: "https://i.ibb.co.com/4DFK5tr/vets4.jpg",
     },
   ];
 
