@@ -1,9 +1,12 @@
 // import React, { useContext } from "react";
 // import { useNavigate } from "react-router-dom";
 
+import { use } from "react";
+import { AuthContext } from "../../context/AuthContext.";
+
 const MyProfile = () => {
+  const {user} = use(AuthContext);
   // const navigate = useNavigate();
-  const user = 'shohan';
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-linear-to-r from-[#536976]  to-[#292e49] px-4">
@@ -25,19 +28,19 @@ const MyProfile = () => {
 
         {/* User Info */}
         <div className="text-left space-y-3">
-          <p className="text-white">
-            <span className="font-semibold text-amber-500">Name:</span>{" "}
+          <p className="text-amber-500">
+            <span className="font-semibold text-white">Name:</span>{" "}
             {user?.displayName || "Not available"}
           </p>
-          <p className="text-white">
-            <span className="font-semibold text-amber-500">Email:</span>{" "}
+          <p className="text-amber-500">
+            <span className="font-semibold text-white">Email:</span>{" "}
             {user?.email || "Not available"}
           </p>
         </div>
 
         <button
           // onClick={() => navigate("/update-profile")}
-          className="mt-8 bg-amber-500 hover:bg-amber-600 text-white font-semibold py-2 px-6 rounded-lg transition duration-300"
+          className="mt-8 bg-blue-700 hover:bg-blue-600 cursor-pointer text-white font-semibold py-2 px-6 rounded-lg transition duration-300"
         >
           Update Profile
         </button>

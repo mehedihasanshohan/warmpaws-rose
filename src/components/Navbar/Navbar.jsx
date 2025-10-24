@@ -12,7 +12,7 @@ const Navbar = () => {
   const handleGoogleSignOut =() => {
     signOutUser()
     .then( ()=> {
-      alert('sign out')
+
     })
     .catch(error => {
       console.log(error)
@@ -39,7 +39,7 @@ const Navbar = () => {
   <div className="navbar-center hidden lg:flex animate__animated animate__fadeInLeft" >
     <ul className="flex justify-center items-center gap-4 text-white  font-semibold text-2xl px-1">
       <li className='hover:underline'><NavLink>Home</NavLink></li>
-      <li className='hover:underline'><NavLink>Services</NavLink></li>
+      <li className='hover:underline'><NavLink to='/services'>Services</NavLink></li>
       <li className='hover:underline'><NavLink to='/my-profile'>My Profile</NavLink></li>
     </ul>
   </div>
@@ -65,7 +65,7 @@ const Navbar = () => {
   {user ? (
     <button
       onClick={handleGoogleSignOut}
-      className="btn btn-sm bg-red-500 hover:bg-red-600 text-white border-none transition-all duration-300"
+      className="btn btn-sm bg-red-400 hover:bg-red-300 text-white border-none transition-all duration-300"
     >
       Logout
     </button>

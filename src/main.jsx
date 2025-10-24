@@ -13,6 +13,7 @@ import MyProfile from './pages/myprofile/MyProfile.jsx';
 import ServiceDetails from './components/PetsServices/ServiceDetails.jsx';
 import AuthProvider from './context/AuthProvider.jsx';
 import PrivateRoutes from './Routes/PrivateRoutes.jsx';
+import Services from './pages/Services/Services.jsx';
 
 
 const router = createBrowserRouter([
@@ -21,15 +22,28 @@ const router = createBrowserRouter([
     element: <MainLayout></MainLayout>,
     children: [
       {index: true, element:<Home></Home> },
-      { path: '/service/:id', element: <ServiceDetails></ServiceDetails> },
-      {path: '/login', element: <Login></Login>},
+      {
+        path: '/service/:id',
+        element:  <PrivateRoutes>
+                   <ServiceDetails></ServiceDetails>
+                  </PrivateRoutes>
+      },
+      {
+        path: '/login',
+        element: <Login></Login>},
       {path: '/register', element:<Register></Register>},
-      {path:'/forget-password', element:<ForgetPassword></ForgetPassword>},
+      {
+        path:'/forget-password',
+        element:<ForgetPassword></ForgetPassword>},
       {
         path: '/my-profile',
-        element: <PrivateRoutes>
-          <MyProfile></MyProfile>
-        </PrivateRoutes>
+        element:  <PrivateRoutes>
+                   <MyProfile></MyProfile>
+                  </PrivateRoutes>
+      },
+      {
+        path: '/services',
+        element: <Services></Services>
       }
     ]
   },

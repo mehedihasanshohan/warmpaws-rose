@@ -42,7 +42,7 @@ const ExpertVets = () => {
   ];
 
   return (
-    <section className="py-12 bg-white">
+    <section className="py-12 bg-blue-50">
       <div className="max-w-6xl mx-auto px-6 text-center">
         <h2 className="text-3xl font-bold text-blue-700 mb-8">
           Meet Our Expert Vets

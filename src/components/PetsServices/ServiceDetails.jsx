@@ -95,7 +95,7 @@ const ServiceDetails = () => {
 
             <button
               type="submit"
-              className="bg-blue-500 text-white px-6 py-3 rounded-lg w-full hover:bg-blue-600 transition-all"
+              className="bg-blue-500 cursor-pointer text-white px-6 py-3 rounded-lg w-full hover:bg-blue-600 transition-all"
             >
               Book Now
             </button>
