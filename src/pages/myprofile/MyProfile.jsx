@@ -79,7 +79,7 @@ const MyProfile = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-linear-to-r from-[#536976] to-[#292e49] px-4">
+    <div data-aos="flip-right" className="flex justify-center items-center min-h-screen bg-linear-to-r from-[#536976] to-[#292e49] px-4">
       <div className="bg-sky-700/30 shadow-lg rounded-2xl p-8 w-full max-w-md text-center">
         <h2 className="text-2xl font-bold text-white mb-6">My Profile</h2>
 

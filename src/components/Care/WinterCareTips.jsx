@@ -62,6 +62,7 @@ const WinterCareTips = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {tips.map((tip) => (
             <div
+              data-aos="zoom-out"
               key={tip.id}
               className="card bg-white shadow-lg rounded-2xl overflow-hidden hover:shadow-xl transition-all"
             >

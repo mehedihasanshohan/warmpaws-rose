@@ -1,4 +1,4 @@
-import { StrictMode } from 'react'
+import { StrictMode, useEffect } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import { createBrowserRouter } from "react-router";
@@ -15,6 +15,8 @@ import PrivateRoutes from './Routes/PrivateRoutes.jsx';
 import Services from './pages/Services/Services.jsx';
 import { ToastContainer } from 'react-toastify';
 
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const router = createBrowserRouter([
   {
@@ -57,11 +59,36 @@ const router = createBrowserRouter([
   }
 ]);
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
+// createRoot(document.getElementById('root')).render(
+//   <StrictMode>
+//     <AuthProvider>
+//       <RouterProvider router={router} />
+//     </AuthProvider>
+//     <ToastContainer></ToastContainer>
+//   </StrictMode>,
+// )
+
+
+// eslint-disable-next-line react-refresh/only-export-components
+const Root = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+      offset: 100,
+    });
+  }, []);
+
+  return (
     <AuthProvider>
       <RouterProvider router={router} />
+      <ToastContainer />
     </AuthProvider>
-    <ToastContainer></ToastContainer>
-  </StrictMode>,
-)
+  );
+};
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <Root></Root>
+  </StrictMode>
+);
