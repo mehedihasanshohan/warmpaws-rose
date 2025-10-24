@@ -1,7 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import App from './App.jsx'
 import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
 import MainLayout from './Root/MainLayout.jsx';
@@ -14,6 +13,7 @@ import ServiceDetails from './components/PetsServices/ServiceDetails.jsx';
 import AuthProvider from './context/AuthProvider.jsx';
 import PrivateRoutes from './Routes/PrivateRoutes.jsx';
 import Services from './pages/Services/Services.jsx';
+import { ToastContainer } from 'react-toastify';
 
 
 const router = createBrowserRouter([
@@ -62,5 +62,6 @@ createRoot(document.getElementById('root')).render(
     <AuthProvider>
       <RouterProvider router={router} />
     </AuthProvider>
+    <ToastContainer></ToastContainer>
   </StrictMode>,
 )
