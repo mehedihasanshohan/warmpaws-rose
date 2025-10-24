@@ -56,25 +56,22 @@
 
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthContext.";
-import { updateProfile } from "firebase/auth";
 import { toast } from "react-toastify";
 
 const MyProfile = () => {
-  const { user } = useContext(AuthContext);
+  const { user, updateUserProfile } = useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
   const [name, setName] = useState(user?.displayName || "");
   const [photoURL, setPhotoURL] = useState(user?.photoURL || "");
 
   const handleUpdate = (e) => {
     e.preventDefault();
-
     if (!user) return;
 
-    updateProfile(user, { displayName: name, photoURL })
+    updateUserProfile(name, photoURL)
       .then(() => {
         toast.success("Profile updated successfully!");
         setIsOpen(false);
-        window.location.reload();
       })
       .catch((error) => {
         toast.error(error.message);
@@ -131,7 +128,7 @@ const MyProfile = () => {
                   type="text"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="w-full px-3 py-2 rounded-lg text-black outline-none"
+                  className="w-full px-3 py-2 rounded-lg text-amber-400 outline-none border border-gray-50"
                 />
               </div>
 
@@ -141,7 +138,7 @@ const MyProfile = () => {
                   type="text"
                   value={photoURL}
                   onChange={(e) => setPhotoURL(e.target.value)}
-                  className="w-full px-3 py-2 rounded-lg text-black outline-none"
+                  className="w-full px-3 py-2 rounded-lg text-amber-400 outline-none border border-gray-50"
                 />
               </div>
 
@@ -149,13 +146,13 @@ const MyProfile = () => {
                 <button
                   type="button"
                   onClick={() => setIsOpen(false)}
-                  className="px-4 py-2 rounded-lg bg-gray-500 hover:bg-gray-600"
+                  className="px-4 py-2 rounded-lg cursor-pointer bg-gray-500 hover:bg-gray-600"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="px-4 py-2 rounded-lg bg-blue-700 hover:bg-blue-600"
+                  className="px-4 py-2 rounded-lg cursor-pointer bg-blue-700 hover:bg-blue-600"
                 >
                   Save
                 </button>

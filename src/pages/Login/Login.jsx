@@ -6,6 +6,7 @@ import { Link, useLocation, useNavigate } from 'react-router';
 import auth from '../../firebase/firebase.config';
 import google from '/google.png'
 import { AuthContext } from '../../context/AuthContext.';
+import { toast } from 'react-toastify';
 
 const Login = () => {
   const {logInUser, signInWithGoogle} = use(AuthContext);
@@ -56,6 +57,7 @@ const Login = () => {
         console.log(result.user);
         setSuccess('login successfully')
         navigate(location.state || '/')
+        toast.success('log in successfully completed')
       })
       .catch(error => {
         console.log(error)

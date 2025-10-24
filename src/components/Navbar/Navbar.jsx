@@ -3,6 +3,7 @@ import React, { use} from 'react'
 import { NavLink} from 'react-router'
 // import auth from '../../firebase/firebase.config';
 import { AuthContext } from '../../context/AuthContext.';
+import { toast } from 'react-toastify';
 
 const Navbar = () => {
   const {user, signOutUser} = use(AuthContext);
@@ -12,7 +13,7 @@ const Navbar = () => {
   const handleGoogleSignOut =() => {
     signOutUser()
     .then( ()=> {
-
+      toast.success('sign out successfully')
     })
     .catch(error => {
       console.log(error)
@@ -34,7 +35,8 @@ const Navbar = () => {
         <li><NavLink>My Profile</NavLink></li>
       </ul>
     </div>
-    <a className="text-3xl font-semibold text-white ml-2 animate__animated animate__rollIn">warmpaws rose</a>
+    <a className="text-3xl font-semibold text-white ml-2 animate__animated animate__rollIn">
+      <span className='text-amber-400 text-3xl font-semibold'>warmpaws</span> rose</a>
   </div>
   <div className="navbar-center hidden lg:flex animate__animated animate__fadeInLeft" >
     <ul className="flex justify-center items-center gap-4 text-white  font-semibold text-2xl px-1">
@@ -43,13 +45,6 @@ const Navbar = () => {
       <li className='hover:underline'><NavLink to='/my-profile'>My Profile</NavLink></li>
     </ul>
   </div>
-  {/* <div className="navbar-end text-white flex gap-2 animate__animated animate__fadeInRight">
-
-    {
-      user &&   <img src={user.photoURL} data-tip={'shohan'} className='h-8 rounded-full tooltip tooltip-bottom' alt="" />
-    }
-    {user ? <NavLink onClick={handleGoogleSignOut}>Logout</NavLink> : <NavLink to='/register'>Register</NavLink>}
-  </div> */}
 
   <div className="navbar-end text-white flex items-center gap-3 animate__animated animate__fadeInRight">
   {user && (
@@ -69,14 +64,22 @@ const Navbar = () => {
     >
       Logout
     </button>
-  ) : (
+  ) :
+    <div className='flex gap-4'>
+    <NavLink
+      to="/login"
+      className="btn btn-sm bg-blue-500 hover:bg-blue-600 text-white border-none transition-all duration-300"
+    >
+      Login
+    </NavLink>
     <NavLink
       to="/register"
       className="btn btn-sm bg-blue-500 hover:bg-blue-600 text-white border-none transition-all duration-300"
     >
       Register
     </NavLink>
-  )}
+   </div>
+  }
 </div>
 
 

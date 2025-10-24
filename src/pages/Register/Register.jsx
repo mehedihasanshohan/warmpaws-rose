@@ -6,9 +6,10 @@ import { BsEyeSlash } from 'react-icons/bs';
 import { Link, useNavigate } from 'react-router';
 import google from '/google.png'
 import { AuthContext } from '../../context/AuthContext.';
+import { toast } from 'react-toastify';
 
 const Register = () => {
-  const {createUser} = use(AuthContext);
+  const {createUser, updateUserProfile} = use(AuthContext);
 
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
@@ -20,6 +21,7 @@ const Register = () => {
      signInWithPopup(auth, googleProvider)
       .then(result => {
          setSuccess(`Login successful! Welcome ${result.user.displayName || result.user.email}`);
+         toast.success('sign in successfully completed')
          navigate('/');
       })
       .catch(error => {
@@ -52,16 +54,28 @@ const Register = () => {
     }
 
     createUser(email, password)
-    .then(result => {
-      console.log(result.user)
-      setSuccess("Account Created Successfully");
-      e.target.reset()
-      navigate('/');
-     })
-     .catch(error => {
-      console.log(error.message)
-      setError(error.message)
-     })
+  .then(result => {
+    console.log(result.user);
+
+    //  Update the profile with name and photo
+    updateUserProfile(name, photoUrl)
+      .then(() => {
+        toast.success("Profile updated successfully");
+        setSuccess("Account Created & Profile Updated Successfully");
+        e.target.reset();
+        navigate('/');
+      })
+      .catch(error => {
+        console.log(error.message);
+        setError("Profile update failed: " + error.message);
+      });
+
+  })
+  .catch(error => {
+    console.log(error.message);
+    setError(error.message);
+  });
+
   }
 
   const handleTogglePasswordShow = e => {
