@@ -30,13 +30,6 @@ const AuthProvider = ({children}) => {
     return signInWithPopup(auth, googleProvider)
   }
 
-  // const updateUserProfile = (name, photoURL) => {
-  //   setLoading(false);
-  //   return updateProfile(auth.currentUser, {
-  //     displayName: name,
-  //     photoURL: photoURL,
-  //   });
-  // };
 
     const updateUserProfile = async (name, photoURL) => {
     if (!auth.currentUser) return;
