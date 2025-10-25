@@ -6,12 +6,12 @@ const PetServices = () => {
   const [services, setServices] = useState([]);
 
   const images = [
-    "https://i.ibb.co.com/jP0tkFGh/p1.jpg",
-    "https://i.ibb.co.com/VYnmrNN5/p2.jpg",
-    "https://i.ibb.co.com/S75T1TSs/p3.jpg",
-    "https://i.ibb.co.com/0pcFdGRG/p5.jpg",
-    "https://i.ibb.co.com/TMmzHqpG/p6.jpg",
-    "https://i.ibb.co.com/d0rwzgtD/pets2.webp"
+    "https://i.ibb.co.com/PnrJkV7/download-6.jpg",
+    "https://i.ibb.co.com/zMDYHR4/images-6.jpg",
+    "https://i.ibb.co.com/1YKKSp7T/images-7.jpg",
+    "https://i.ibb.co.com/PZyFj6Px/images-8.jpg",
+    "https://i.ibb.co.com/C3T4WfQX/images-9.jpg",
+    "https://i.ibb.co.com/qHX9nn7/images-10.jpg",
   ];
 
 
@@ -65,6 +65,11 @@ const PetServices = () => {
             </div>
           ))}
         </div>
+      </div>
+      <div className="text-center">
+        <Link to='/services' className="btn btn-accent mt-6">
+          Show All Services
+        </Link>
       </div>
     </section>
   );
