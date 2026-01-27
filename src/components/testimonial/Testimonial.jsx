@@ -1,5 +1,9 @@
 import React from "react";
 import { FaQuoteLeft } from "react-icons/fa";
+// eslint-disable-next-line no-unused-vars
+import { motion } from "framer-motion";
+import Title from "../Title/Title";
+
 const testimonials = [
   {
     id: 1,
@@ -19,7 +23,7 @@ const testimonials = [
   },
   {
     id: 3,
-    name: "Mr. Harpit ",
+    name: "Mr. Harpit",
     role: "Pet Analyser",
     img: "https://i.ibb.co.com/kg3PNDtX/t3.jpg",
     review:
@@ -28,45 +32,65 @@ const testimonials = [
 ];
 
 const Testimonial = () => {
-
   return (
-    <section className="py-16 bg-blue-50">
-      <div className="max-w-6xl mx-auto px-6 text-center">
-        <h2
-          className="text-3xl md:text-4xl font-bold mb-12"
-          data-aos="fade-up"
-        >
-          What <span className="text-amber-500">Our Customers</span> Are Saying
-        </h2>
+    <section className="relative py-24 bg-[#0f172a] overflow-hidden">
+      {/* Dynamic Background Blobs */}
+      <div className="absolute top-0 left-0 w-96 h-96 bg-cyan-600/10 rounded-full blur-[130px] -translate-x-1/2" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-600/10 rounded-full blur-[130px] translate-x-1/2" />
 
-        <div
-          className="grid grid-cols-1 md:grid-cols-3 gap-8"
-          data-aos="fade-up"
-          data-aos-delay="200"
+      <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-16"
         >
-          {testimonials.map(({ id, name, role, img, review }) => (
-            <div
+           <Title className="text-white">What Our Customers Say</Title>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {testimonials.map(({ id, name, role, img, review }, index) => (
+            <motion.div
               key={id}
-              className="bg-white p-6 shadow-lg rounded-xl border border-gray-100 hover:shadow-xl transition-all duration-300"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              whileHover={{ y: -10 }}
+              className="group relative bg-white/3 backdrop-blur-xl border border-white/10 p-8 rounded-[35px] shadow-2xl transition-all duration-300 flex flex-col items-start text-left"
             >
-              <p className="text-gray-600 mb-6 leading-relaxed">{review}</p>
-              <div className="flex items-center gap-4">
+              {/* Quote Icon with Soft Glow */}
+              <div className="mb-6 bg-cyan-500/10 p-4 rounded-2xl text-cyan-400 group-hover:bg-cyan-500 group-hover:text-white transition-all duration-300">
+                <FaQuoteLeft size={20} />
+              </div>
+
+              <p className="text-slate-300 mb-8 leading-relaxed italic grow">
+                "{review}"
+              </p>
+
+              <div className="flex items-center gap-4 border-t border-white/5 pt-6 w-full">
                 <div className="relative">
                   <img
                     src={img}
                     alt={name}
-                    className="w-14 h-14 rounded-full object-cover border-2 border-amber-500"
+                    className="w-14 h-14 rounded-full object-cover border-2 border-cyan-500/30 group-hover:border-cyan-400 transition-colors"
                   />
-                  <span className="absolute -bottom-1 -right-1 bg-amber-500 text-white p-1 rounded-full text-xs">
-                    <FaQuoteLeft />
-                  </span>
+                  <div className="absolute inset-0 rounded-full bg-cyan-500/10 blur-sm group-hover:blur-md opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
-                <div className="text-left">
-                  <h4 className="font-bold text-gray-800">{name}</h4>
-                  <p className="text-gray-500 text-sm">{role}</p>
+
+                <div>
+                  <h4 className="font-bold text-white text-lg tracking-tight group-hover:text-cyan-400 transition-colors">
+                    {name}
+                  </h4>
+                  <p className="text-cyan-400/70 text-xs font-bold uppercase tracking-widest">
+                    {role}
+                  </p>
                 </div>
               </div>
-            </div>
+
+              {/* Glass Reflection Highlight */}
+              <div className="absolute inset-0 rounded-[35px] bg-linear-to-tr from-white/2 to-transparent pointer-events-none" />
+            </motion.div>
           ))}
         </div>
       </div>

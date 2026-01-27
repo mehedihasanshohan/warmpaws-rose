@@ -9,3 +9,33 @@ body{
 ul a.active{
   text-decoration: underline;
 }
+
+
+/* Triangle shape */
+.clip-triangle {
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+/* Animations */
+@keyframes pulse-slow {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.1); opacity: 0.9; }
+}
+@keyframes spin-slow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+@keyframes spin-reverse-slow {
+  0% { transform: rotate(360deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 10s infinite ease-in-out;
+}
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+.animate-spin-reverse-slow {
+  animation: spin-reverse-slow 25s linear infinite;
+}
