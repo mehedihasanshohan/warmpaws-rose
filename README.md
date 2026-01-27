@@ -25,6 +25,21 @@ Users can explore **local pet care services**, **winter clothing**, **grooming o
 
 ---
 
+## **Tech Stack**
+
+- **React** (frontend framework)
+- **TailwindCSS & DaisyUI** (UI/Styling)
+- **React Router DOM** (Routing)
+- **TanStack Query** (Data fetching & caching)
+- **React Hook Form** (Form handling)
+- **Axios** (API requests)
+- **JWT** (Authentication)
+- **Sweet Alert / Toast** (Notifications)
+- **LocalStorage** (Theme preference persistence)
+- **Vercel  & Netlify** (Hosting)
+
+---
+
 ##  NPM Packages Used
 | Package | Purpose |
 |----------|----------|
@@ -39,9 +54,17 @@ Users can explore **local pet care services**, **winter clothing**, **grooming o
 
 ---
 
+
 ##  Developer
 **Mehedi Hasan Shohan**
 📧 [mhshohan01@gmail.com](mailto:mhshohan01@gmail.com)
 
 ---
 
+## **Setup & Installation**
+
+```bash
+git clone https://github.com/mehedihasanshohan/pawmart-client.git
+cd pawmart-client
+npm install
+npm run dev
