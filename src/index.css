@@ -6,9 +6,9 @@ body{
   font-family: "Poppins", sans-serif;
 }
 
-ul a.active{
+/* ul a.active{
   text-decoration: underline;
-}
+} */
 
 
 /* Triangle shape */
@@ -39,3 +39,4 @@ ul a.active{
 .animate-spin-reverse-slow {
   animation: spin-reverse-slow 25s linear infinite;
 }
+

@@ -94,29 +94,5 @@
     "description": "Keep your pet’s fur healthy with moisturizing shampoo and protective conditioner for winter care.",
     "image": "/p4.jfif",
     "category": "Grooming"
-  },
-  {
-    "serviceId": 5,
-    "serviceName": "Pet Winter Health Check",
-    "providerName": "Vet4Pets",
-    "providerEmail": "vet@vet4pets.com",
-    "price": 35,
-    "rating": 5.0,
-    "slotsAvailable": 2,
-    "description": "Comprehensive vet checkup focused on cold-weather illnesses and skin dryness issues.",
-    "image": "/p5.jfif",
-    "category": "Health"
-  },
-  {
-    "serviceId": 6,
-    "serviceName": "Winter Boarding & Daycare",
-    "providerName": "FurHaven Lodge",
-    "providerEmail": "stay@furhaven.com",
-    "price": 55,
-    "rating": 4.9,
-    "slotsAvailable": 8,
-    "description": "Safe and warm overnight stay with indoor play areas for pets when owners travel in winter.",
-    "image": "/p6.jfif",
-    "category": "Boarding"
   }
 ]
